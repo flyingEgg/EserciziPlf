@@ -53,3 +53,17 @@ scarta_multiplo_cinque([X|Xs], [X|Ys]) :-
     \+ (X mod 5 =:= 0, X mod 2 =\= 0),
     scarta_multiplo_cinque(Xs, Ys).
 /*************************************************/
+
+
+/* es Media Geometrica */
+
+prodotto([], 1).
+prodotto([X|Xs], Prodotto) :-
+    prodotto(Xs, Prodotto1),
+    Prodotto is X * Prodotto1.
+
+media_geometrica([], 0).
+media_geometrica(Xs, Media) :-
+    length(Xs, Lunghezza),
+    prodotto(Xs, Prodotto),
+    Media is Prodotto ** (1 / Lunghezza).
