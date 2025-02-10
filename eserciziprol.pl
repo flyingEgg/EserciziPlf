@@ -82,3 +82,20 @@ massimo_prima_coppia([X|_], Max) :-
      max_coppia(X, M),
      Max is M.
 /*************************************************/
+
+/* es Numero minimo della prima coppia */
+min_coppia((0, 0), 0).
+min_coppia((A, B), Min) :-
+    A < B,
+    Min is A.
+min_coppia((A, B), Min) :-
+    B < A,
+    Min is B.
+
+splitta([X|_], S) :- S is X.
+
+min_seconda_coppia([_|Xs], Min) :-
+    splitta(Xs, S),
+    min_coppia(S, M),
+    Min is M.
+/*************************************************/
