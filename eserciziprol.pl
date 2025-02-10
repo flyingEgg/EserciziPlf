@@ -56,7 +56,6 @@ scarta_multiplo_cinque([X|Xs], [X|Ys]) :-
 
 
 /* es Media Geometrica */
-
 prodotto([], 1).
 prodotto([X|Xs], Prodotto) :-
     prodotto(Xs, Prodotto1),
@@ -67,3 +66,19 @@ media_geometrica(Xs, Media) :-
     length(Xs, Lunghezza),
     prodotto(Xs, Prodotto),
     Media is Prodotto ** (1 / Lunghezza).
+/*************************************************/
+
+/* es Numero massimo della prima coppia */
+max_coppia((0, 0), 0).
+max_coppia((A, B), M) :-
+    A > B,
+    M is A.
+max_coppia((A, B), M) :-
+    B > A,
+    M is B.
+
+massimo_prima_coppia([], no).
+massimo_prima_coppia([X|_], Max) :-
+     max_coppia(X, M),
+     Max is M.
+/*************************************************/
