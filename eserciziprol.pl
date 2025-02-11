@@ -94,7 +94,7 @@ min_coppia((A, B), Min) :-
 
 splitta([X|_], S) :- S is X.
 
-min_seconda_coppia([_|Xs], Min) :-
+min_seconda_coppia([_|X s], Min) :-
     splitta(Xs, S),
     min_coppia(S, M),
     Min is M.

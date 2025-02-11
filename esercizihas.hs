@@ -44,19 +44,17 @@ scartaMultipliDispariFive (x:xs)
 -- #############################
 
 -- es Scarta anni bisestili da lista di interi non negativi
-verificaBisestile :: Integer -> Bool
-verificaBisestile 0 = True
-verificaBisestile y
-    | y `mod` 400 == 0 = True
-    | y `mod` 100 == 0 = False
-    | y `mod` 4 == 0   = True
-    | otherwise        = False
-
 scartaBisestili :: [Integer] -> [Integer]
 scartaBisestili [] = []
 scartaBisestili (x:xs)
-    | verificaBisestile x == False = [x] ++ scartaBisestili xs
+    | (verificaBisestile x) == False = [x] ++ scartaBisestili xs
     | otherwise                    = scartaBisestili xs
+    where
+        verificaBisestile anno
+            | anno `mod` 400 == 0 = True
+            | anno `mod` 100 == 0 = False
+            | anno `mod` 4 == 0   = True
+            | otherwise = False
 -- #############################
 
 -- es Somma dei quadrati dei numeri pari
